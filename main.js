@@ -19,8 +19,9 @@ async function SearchWeatherByCity() {
   if (!searchValue) {
     searchValue = "Gainesville"; // If the value is empty, we put the 'random' value
   }
+
   const response = await fetch(
-    `http://api.openweathermap.org/data/2.5/weather?q=${searchValue}&APPID=327aafdf4dda20dbcc0268009e351b2e&units=imperial`,
+    `https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&APPID=327aafdf4dda20dbcc0268009e351b2e&units=imperial`,
     { mode: "cors" }
   );
   const weatherData = await response.json();
