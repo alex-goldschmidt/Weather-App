@@ -1,17 +1,17 @@
 const container = document.querySelector(".container");
-const card = document.querySelector('.card');
+const card = document.querySelector(".card");
 const cityName = document.querySelector(".cityName");
-const temperature = document.querySelector('.temperature');
-const feelsLike = document.querySelector('.feelsLike');
-const humidity = document.querySelector('.humidity');
-const wind = document.querySelector('.wind');
+const temperature = document.querySelector(".temperature");
+const feelsLike = document.querySelector(".feelsLike");
+const humidity = document.querySelector(".humidity");
+const wind = document.querySelector(".wind");
 const form = document.querySelector(".form");
 const search = document.getElementById("search");
 
 form.addEventListener("submit", SearchWeatherByCity);
 form.addEventListener("submit", (e) => {
-  card.style.border = "1px solid black";
   e.preventDefault();
+  card.style.display = "grid";
 });
 
 async function SearchWeatherByCity() {
@@ -24,10 +24,10 @@ async function SearchWeatherByCity() {
     { mode: "cors" }
   );
   const weatherData = await response.json();
-  console.log(weatherData);
+
   cityName.innerText = weatherData.name;
   temperature.innerText = weatherData.main.temp + " °F";
   feelsLike.innerText = "Feels like: " + weatherData.main.feels_like + " °F";
   humidity.innerText = "Humidity: " + weatherData.main.humidity + " %";
-  wind.innerText = "Wind: " + weatherData.wind.speed + " mph"
+  wind.innerText = "Wind: " + weatherData.wind.speed + " mph";
 }
